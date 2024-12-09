@@ -25,4 +25,4 @@ jobs:
 
       - name: Run Checkstyle
         run: |
-          java -jar checkstyle.jar -DsuppressionFile=codestyle/naver-checkstyle-suppressions.xml -c codestyle/naver-checkstyle-rules.xml src/
+          java -jar checkstyle.jar -c codestyle/naver-checkstyle-rules.xml src/
