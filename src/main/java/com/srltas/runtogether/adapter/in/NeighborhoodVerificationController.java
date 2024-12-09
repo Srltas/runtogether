@@ -35,8 +35,7 @@ public class NeighborhoodVerificationController {
 	)
 	@ApiResponse(responseCode = "200", description = "동네 인증 성공")
 	@PostMapping(NEIGHBORHOOD_VERIFICATION)
-	public ResponseEntity<NeighborhoodVerificationResult> verifyNeighborhood(
-		@RequestBody @Valid NeighborhoodVerificationRequest neighborhoodVerificationRequest, HttpSession session) {
+	public ResponseEntity<NeighborhoodVerificationResult> verifyNeighborhood(@RequestBody @Valid NeighborhoodVerificationRequest neighborhoodVerificationRequest, HttpSession session) {
 		UserSession userSession = getUserSession(session);
 
 		NeighborhoodVerificationCommand neighborhoodVerificationCommand = toCommand(neighborhoodVerificationRequest);
