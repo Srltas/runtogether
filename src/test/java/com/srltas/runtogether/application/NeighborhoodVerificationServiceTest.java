@@ -4,7 +4,6 @@ import static com.srltas.runtogether.testutil.TestIdGenerator.*;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.BDDMockito.any;
 import static org.mockito.BDDMockito.*;
 
 import java.time.LocalDateTime;
@@ -72,15 +71,14 @@ class NeighborhoodVerificationServiceTest {
 			given(userRepository.findById(userId)).willReturn(Optional.of(user));
 
 			try (MockedStatic<LocationMapper> locationMapperMock = mockStatic(
-				LocationMapper.class); MockedStatic<LocationUtils> locationUtilsMock = mockStatic(
-				LocationUtils.class)) {
+				LocationMapper.class); MockedStatic<LocationUtils> locationUtilsMock = mockStatic(LocationUtils.class)) {
 
 				locationMapperMock.when(
 						() -> LocationMapper.neighborhoodVerificationCommandToDomain(neighborhoodVerificationCommand))
 					.thenReturn(location);
 
 				locationUtilsMock.when(
-						() -> LocationUtils.calculateDistanceBetweenLocations(any(Location.class), any(Location.class)))
+						() -> LocationUtils.calculateDistanceBetweenLocations(isA(Location.class), isA(Location.class)))
 					.thenReturn(5.0);
 
 				neighborhoodVerificationService.verifyAndRegisterNeighborhood(userId, neighborhoodVerificationCommand);
@@ -93,7 +91,7 @@ class NeighborhoodVerificationServiceTest {
 		public void testVerifyAndRegisterNeighborhood_OutsideBoundary() {
 			try (MockedStatic<LocationUtils> locationUtilsMock = mockStatic(LocationUtils.class)) {
 				locationUtilsMock.when(
-						() -> LocationUtils.calculateDistanceBetweenLocations(any(Location.class), any(Location.class)))
+						() -> LocationUtils.calculateDistanceBetweenLocations(isA(Location.class), isA(Location.class)))
 					.thenReturn(15.0);
 
 				OutOfNeighborhoodBoundaryException exception = assertThrows(OutOfNeighborhoodBoundaryException.class,
@@ -105,7 +103,7 @@ class NeighborhoodVerificationServiceTest {
 				assertThat(exception.getErrorCode().getCode(), is(-355));
 				assertThat(exception.getMessage(), is("해당 동네 범위를 벗어났습니다."));
 			}
-			then(userRepository).should(never()).save(any(User.class));
+			then(userRepository).should(never()).save(isA(User.class));
 		}
 	}
 
@@ -123,7 +121,7 @@ class NeighborhoodVerificationServiceTest {
 
 			assertThat(exception.getErrorCode().getCode(), is(-301));
 			assertThat(exception.getMessage(), is("해당 동네를 찾을 수 없습니다."));
-			then(userRepository).should(never()).save(any(User.class));
+			then(userRepository).should(never()).save(isA(User.class));
 		}
 	}
 }
