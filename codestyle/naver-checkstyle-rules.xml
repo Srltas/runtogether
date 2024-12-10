@@ -55,7 +55,7 @@ The following rules in the Naver coding convention cannot be checked by this con
 		<!-- Start of Naming chapter -->
 
 		<!-- [list-uppercase-abbr] -->
-		<module name="AbbreviationAsWordInName" enabled="false">
+		<module name="AbbreviationAsWordInName">
 			<property name="ignoreFinal" value="false"/>
 			<property name="allowedAbbreviationLength" value="1"/>
 			<message key="abbreviation.as.word"
