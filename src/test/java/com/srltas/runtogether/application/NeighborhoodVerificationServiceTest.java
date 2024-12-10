@@ -24,8 +24,8 @@ import com.srltas.runtogether.application.mappper.LocationMapper;
 import com.srltas.runtogether.application.port.in.NeighborhoodVerificationCommand;
 import com.srltas.runtogether.domain.model.neighborhood.Location;
 import com.srltas.runtogether.domain.model.neighborhood.LocationUtils;
-import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.Neighborhood;
+import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.NeighborhoodRepository;
 import com.srltas.runtogether.domain.model.user.User;
 import com.srltas.runtogether.domain.model.user.UserNeighborhood;
@@ -71,7 +71,7 @@ class NeighborhoodVerificationServiceTest {
 			given(userRepository.findById(userId)).willReturn(Optional.of(user));
 
 			try (MockedStatic<LocationMapper> locationMapperMock = mockStatic(LocationMapper.class);
-				 MockedStatic<LocationUtils> locationUtilsMock = mockStatic(LocationUtils.class)) {
+				MockedStatic<LocationUtils> locationUtilsMock = mockStatic(LocationUtils.class)) {
 
 				locationMapperMock.when(
 						() -> LocationMapper.neighborhoodVerificationCommandToDomain(neighborhoodVerificationCommand))
