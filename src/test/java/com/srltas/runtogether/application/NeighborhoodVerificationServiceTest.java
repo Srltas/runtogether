@@ -19,11 +19,11 @@ import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.srltas.runtogether.application.exception.NeighborhoodNotFoundException;
 import com.srltas.runtogether.application.mappper.LocationMapper;
 import com.srltas.runtogether.application.port.in.NeighborhoodVerificationCommand;
-import com.srltas.runtogether.application.exception.NeighborhoodNotFoundException;
-import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.Location;
+import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.LocationUtils;
 import com.srltas.runtogether.domain.model.neighborhood.Neighborhood;
 import com.srltas.runtogether.domain.model.neighborhood.NeighborhoodRepository;
