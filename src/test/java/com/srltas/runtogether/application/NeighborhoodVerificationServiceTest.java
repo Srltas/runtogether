@@ -25,8 +25,8 @@ import com.srltas.runtogether.application.port.in.NeighborhoodVerificationComman
 import com.srltas.runtogether.domain.model.neighborhood.Location;
 import com.srltas.runtogether.domain.model.neighborhood.LocationUtils;
 import com.srltas.runtogether.domain.model.neighborhood.Neighborhood;
-import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.NeighborhoodRepository;
+import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.user.User;
 import com.srltas.runtogether.domain.model.user.UserNeighborhood;
 import com.srltas.runtogether.domain.model.user.UserRepository;
