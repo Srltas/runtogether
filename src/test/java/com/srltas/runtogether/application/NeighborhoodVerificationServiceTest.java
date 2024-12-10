@@ -23,8 +23,8 @@ import com.srltas.runtogether.application.exception.NeighborhoodNotFoundExceptio
 import com.srltas.runtogether.application.mappper.LocationMapper;
 import com.srltas.runtogether.application.port.in.NeighborhoodVerificationCommand;
 import com.srltas.runtogether.domain.model.neighborhood.Location;
-import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.LocationUtils;
+import com.srltas.runtogether.domain.model.neighborhood.exception.OutOfNeighborhoodBoundaryException;
 import com.srltas.runtogether.domain.model.neighborhood.Neighborhood;
 import com.srltas.runtogether.domain.model.neighborhood.NeighborhoodRepository;
 import com.srltas.runtogether.domain.model.user.User;

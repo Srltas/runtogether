@@ -60,7 +60,7 @@ The following rules in the Naver coding convention cannot be checked by this con
 			<property name="allowedAbbreviationLength" value="1"/>
 			<message key="abbreviation.as.word"
 					 value="[list-uppercase-abbr] Abbreviation in name ''{0}'' must contain no more than {1}"/>
-			<property name="allowedAbbreviations" value="DAO,BO,DTO"/>
+			<property name="allowedAbbreviations" value="DAO,BO,DTO,MDC"/>
 		</module>
 
 		<!-- [package-lowercase] -->
@@ -297,7 +297,7 @@ The following rules in the Naver coding convention cannot be checked by this con
 		</module>
 
 		<!-- [blankline-between-methods] -->
-		<module name="EmptyLineSeparator">
+		<module name="EmptyLineSeparator" enabled="false">
 			<property name="tokens" value="METHOD_DEF"/>
 			<message key="empty.line.separator"
 					 value="[blankline-between-methods] ''{0}'' should be separated from previous statement."/>
