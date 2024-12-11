@@ -1,4 +1,4 @@
-name: Checkstyle
+name: Code Style Check
 
 on:
   pull_request:
