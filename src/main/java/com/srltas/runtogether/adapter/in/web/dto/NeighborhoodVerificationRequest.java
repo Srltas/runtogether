@@ -2,6 +2,8 @@ package com.srltas.runtogether.adapter.in.web.dto;
 
 import org.hibernate.validator.constraints.Range;
 
+import com.srltas.runtogether.adapter.out.persistence.mybatis.dto.UserNeighborhoodDTO;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
