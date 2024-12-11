@@ -1,4 +1,4 @@
-name: Checkstyle
+name: Code Style Check
 
 on:
   pull_request:
@@ -25,4 +25,9 @@ jobs:
 
       - name: Run Checkstyle
         run: |
-          java -jar checkstyle.jar -DsuppressionFile=./codestyle/naver-checkstyle-suppressions.xml -c ./codestyle/naver-checkstyle-rules.xml src/
+          java -DsuppressionFile=codestyle/naver-checkstyle-suppressions.xml -jar checkstyle.jar -c codestyle/naver-checkstyle-rules.xml -f xml -o checkstyle-result.xml src/
+
+      - name: Annotate PR with Checkstyle results
+        uses: staabm/annotate-pull-request-from-checkstyle-action@v1
+        with:
+          files: ./checkstyle-result.xml
